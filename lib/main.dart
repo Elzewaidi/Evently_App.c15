@@ -1,55 +1,91 @@
-import 'package:eventlyapp/on_boarding/on_boarding_screen.dart';
-import 'package:eventlyapp/on_boarding/on_boarding_screen1.dart';
-import 'package:eventlyapp/providers/app_language_provider.dart';
-import 'package:eventlyapp/providers/app_theme_provider.dart';
-import 'package:eventlyapp/ui/add_event/add_event.dart';
-import 'package:eventlyapp/ui/auth/Login/login_screen.dart';
-import 'package:eventlyapp/ui/auth/Register/register_screen.dart';
-import 'package:eventlyapp/ui/home_screen.dart';
-import 'package:eventlyapp/utils/app_routes.dart';
-import 'package:eventlyapp/utils/app_theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'l10n/app_localizations.dart';
+import 'package:eventlyapp/providers/app_languge_provider.dart';
+import 'package:eventlyapp/providers/app_theme_provider.dart';
+import 'package:eventlyapp/providers/event_list_provider.dart';
+import 'package:eventlyapp/providers/location_provider.dart';
+import 'package:eventlyapp/providers/user_provider.dart';
+import 'package:eventlyapp/utils/themes.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
+import 'Tabs/map/map_tab.dart';
+import 'UI/HomeScreen/add_event/add_event.dart';
+import 'UI/HomeScreen/add_event/edit_event.dart';
+import 'UI/HomeScreen/add_event/event_details.dart';
+import 'UI/HomeScreen/home_screen.dart';
+import 'UI/auth/login/login.dart';
+import 'UI/auth/register/register.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    print('Flutter Error: ${details.exception}');
+  };
+  //debugPaintSizeEnabled = false; // ضعها في main() أثناء التطوير
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  //await FirebaseFirestore.instance.disableNetwork();//offline
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => AppLanguageProvider()),
+        ChangeNotifierProvider(create: (context) => AppLangugeProvider()),
         ChangeNotifierProvider(create: (context) => AppThemeProvider()),
-      ],
+        ChangeNotifierProvider(create: (context) => EventListProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => LocationProvider()),
 
-      child: MyApp(),
+      ],
+      child: const MyApp(),
+
+
     ),
+
+
   );
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var langageProvider = Provider.of<AppLanguageProvider>(context);
+    var languageProvider = Provider.of<AppLangugeProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
-
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+      initialRoute: LoginScreen.routeName,
+      routes: {
+
+        EventDetails.routeName: (context) => EventDetails(),
+        Homescreen.routeName: (context) => Homescreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
+        RegisterScreen.routeName: (context) => RegisterScreen(),
+        AddEvent.routeName: (context) => AddEvent(),
+        EditEvent.routeName: (context) => EditEvent(),
+        MapTap.routeName: (context) => MapTap(),
+      },
+
+
+      theme: AppTheme.lightTheme,
+      themeMode: themeProvider.apptheme,
+      darkTheme: AppTheme.darkTheme,
+      locale: Locale(languageProvider.appLanguage),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      locale: Locale(langageProvider.appLanguage),
-      initialRoute: AppRoutes.homeRouteName,
-      routes: {
-        AppRoutes.homeRouteName: (context) => HomeScreen(),
-        AppRoutes.onBoardingRouteName: (context) => OnboardingScreen(),
-        AppRoutes.onBoardingScreen1RouteName: (context) => OnBoardingScreen1(),
-        AppRoutes.loginRouteName: (context) => LoginScreen(),
-        AppRoutes.registerRouteName: (context) => RegisterScreen(),
-        AppRoutes.addEventRouteName: (context) => AddEvent(),
-      },
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: themeProvider.appTheme,
     );
   }
+
 }

@@ -1,36 +1,17 @@
-import 'package:eventlyapp/utils/shared_prefs.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AppThemeProvider extends ChangeNotifier {
-  ThemeMode appTheme = ThemeMode.light;
+  ThemeMode apptheme = ThemeMode.light;
 
-  void changeTheme(ThemeMode newTheme) async {
-    if (appTheme == newTheme) {
+  void changeTheme(ThemeMode newTheme) {
+    if (apptheme == newTheme) {
       return;
     }
-    appTheme = newTheme;
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(SharedPrefsKeys.themeKey, newTheme.name);
+    apptheme = newTheme;
     notifyListeners();
   }
 
-  Future<void> getTheme() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? theme = prefs.getString(SharedPrefsKeys.themeKey);
-    if (theme != null && theme.isNotEmpty) {
-      if (theme == 'dark') {
-        appTheme = ThemeMode.dark;
-      } else if (theme == 'light') {
-        appTheme = ThemeMode.light;
-      } else {
-        appTheme = ThemeMode.system;
-      }
-      notifyListeners();
-    }
-  }
-
-  bool iSDark() {
-    return appTheme == ThemeMode.dark;
+  bool isDarkMode() {
+    return apptheme == ThemeMode.dark;
   }
 }
