@@ -26,7 +26,6 @@ void main() async {
     FlutterError.presentError(details);
     print('Flutter Error: ${details.exception}');
   };
-  //debugPaintSizeEnabled = false; // ضعها في main() أثناء التطوير
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
