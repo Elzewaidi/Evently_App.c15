@@ -3,25 +3,22 @@ import 'package:eventlyapp/Model/event.dart';
 import 'package:eventlyapp/Model/users.dart';
 
 class FirebaseUtlis {
+
   static CollectionReference<Event> getEventCollection(String uId) {
-    return getUsersCollection()
-        .doc(uId)
-        .collection(Event.collectionName)
+    return getUsersCollection().doc(uId).collection(Event.collectionName)
         .withConverter<Event>(
-          fromFirestore: (snapshot, option) =>
-              Event.fromFireStore(snapshot.data()!),
-          toFirestore: (Event, _) => Event.toFireStore(),
-        );
+      fromFirestore:
+          (snapshot, option) => Event.fromFireStore(snapshot.data()!),
+      toFirestore: (Event, _) => Event.toFireStore(),
+    );
   }
 
-  static CollectionReference<MyUser> getUsersCollection() {
+  static CollectionReference <MyUser> getUsersCollection() {
     return FirebaseFirestore.instance
         .collection(MyUser.collectionName)
-        .withConverter(
-          fromFirestore: (snapshot, options) =>
-              MyUser.fromFireStore(snapshot.data()!),
-          toFirestore: (myUsers, _) => myUsers.toFireStore(),
-        );
+        .withConverter(fromFirestore: (snapshot, options) =>
+        MyUser.fromFireStore(snapshot.data()!),
+        toFirestore: (myUsers, _) => myUsers.toFireStore());
   }
 
   static Future<void> addUserToFireStore(MyUser meUser) {
@@ -39,12 +36,11 @@ class FirebaseUtlis {
     var querySnapShot = await getUsersCollection().doc(id).get();
     return querySnapShot.data();
   }
-
-  //json
-  //[],{}
-  //firebase=>jsonS
-  //developer=>object
-  //json>object
-  //object>json
-  //sayed ali
+//json
+//[],{}
+//firebase=>jsonS
+//developer=>object
+//json>object
+//object>json
+//sayed ali
 }
