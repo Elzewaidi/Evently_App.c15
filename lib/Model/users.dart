@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 
-import '../l10n/app_localizations.dart';
+import '../../../Evently-Flutter-App/lib/app_localizations.dart';
 import '../providers/app_languge_provider.dart';
 import '../providers/app_theme_provider.dart';
 
