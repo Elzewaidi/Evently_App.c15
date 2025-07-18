@@ -1,5 +1,5 @@
+import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:shehab_event/utils/app_colors.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(

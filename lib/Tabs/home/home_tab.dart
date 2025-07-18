@@ -1,18 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:eventlyapp/Model/event.dart';
 import 'package:eventlyapp/Tabs/home/event_item_widget.dart';
 import 'package:eventlyapp/Tabs/home/tab_event_widget.dart';
-import 'package:eventlyapp/firebase_utlis.dart';
-import 'package:eventlyapp/providers/event_list_provider.dart';
-import 'package:eventlyapp/utils/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:eventlyapp/utils/app_assets.dart';
-import 'package:eventlyapp/utils/styles.dart';
 import 'package:eventlyapp/UI/themebottomsheet.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
+import 'package:eventlyapp/providers/event_list_provider.dart';
+import 'package:eventlyapp/utils/app_assets.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
+import 'package:eventlyapp/utils/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import '../../providers/app_languge_provider.dart';
-import '../../providers/app_theme_provider.dart';
 import '../../providers/user_provider.dart';
 
 class HomeTab extends StatefulWidget {

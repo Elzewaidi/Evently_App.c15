@@ -1,14 +1,13 @@
 import 'package:eventlyapp/Model/event.dart';
 import 'package:eventlyapp/UI/HomeScreen/add_event/edit_event.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/providers/app_theme_provider.dart';
 import 'package:eventlyapp/providers/event_list_provider.dart';
 import 'package:eventlyapp/providers/user_provider.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
 import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:eventlyapp/utils/styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 

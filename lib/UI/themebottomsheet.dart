@@ -1,10 +1,9 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:eventlyapp/providers/app_languge_provider.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/providers/app_theme_provider.dart';
 import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:eventlyapp/utils/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class themeBottomSheet extends StatefulWidget {
   const themeBottomSheet({super.key});

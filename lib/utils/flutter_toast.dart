@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shehab_event/utils/app_colors.dart';
 
 class ToastMessage {
   static Future<bool?> toastMsg(String msg) {

@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:eventlyapp/Tabs/favourite/favourite_tab.dart';
 import 'package:eventlyapp/Tabs/home/home_tab.dart';
 import 'package:eventlyapp/Tabs/map/map_tab.dart';
 import 'package:eventlyapp/Tabs/profile/profile_tab.dart';
 import 'package:eventlyapp/UI/HomeScreen/add_event/add_event.dart';
-import 'package:eventlyapp/utils/app_colors.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
+import 'package:flutter/material.dart';
 
 class Homescreen extends StatefulWidget {
   static const String routeName = 'Homescreen';

@@ -1,6 +1,6 @@
 import 'package:eventlyapp/UI/HomeScreen/home_screen.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -9,13 +9,11 @@ import '../../../Tabs/home/tab_event_widget.dart';
 import '../../../Tabs/widget/choose_date_or_time.dart';
 import '../../../Tabs/widget/custem_text_feild.dart';
 import '../../../Tabs/widget/custom_elevated_button.dart';
-import '../../../firebase_utlis.dart';
 import '../../../providers/app_theme_provider.dart';
 import '../../../providers/event_list_provider.dart';
 import '../../../providers/user_provider.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
-import '../../../utils/flutter_toast.dart';
 import '../../../utils/styles.dart';
 import 'location_service/lolo_services.dart';
 

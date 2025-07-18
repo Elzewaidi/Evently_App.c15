@@ -1,17 +1,17 @@
+import 'package:eventlyapp/Model/users.dart';
+import 'package:eventlyapp/Tabs/widget/custem_text_feild.dart';
+import 'package:eventlyapp/Tabs/widget/custom_elevated_button.dart';
+import 'package:eventlyapp/UI/HomeScreen/home_screen.dart';
+import 'package:eventlyapp/UI/auth/login/login.dart';
+import 'package:eventlyapp/firebase_utlis.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
+import 'package:eventlyapp/utils/app_assets.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
+import 'package:eventlyapp/utils/dailog_utils.dart';
+import 'package:eventlyapp/utils/styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shehab_event/Model/users.dart';
-import 'package:shehab_event/Tabs/widget/custem_text_feild.dart';
-import 'package:shehab_event/Tabs/widget/custom_elevated_button.dart';
-import 'package:shehab_event/UI/HomeScreen/homescreen.dart';
-import 'package:shehab_event/UI/auth/login/login.dart';
-import 'package:shehab_event/firebase_utlis.dart';
-import 'package:shehab_event/utils/app_colors.dart';
-import 'package:shehab_event/utils/assets_manger.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shehab_event/utils/dailog_utils.dart';
-import 'package:shehab_event/utils/styles.dart';
 
 import '../../../providers/user_provider.dart';
 

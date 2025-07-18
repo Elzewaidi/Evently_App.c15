@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:eventlyapp/Tabs/home/event_item_widget.dart';
 import 'package:eventlyapp/Tabs/widget/custem_text_feild.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/providers/event_list_provider.dart';
-import 'package:eventlyapp/utils/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:eventlyapp/utils/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import '../../Model/event.dart';
 import '../../providers/user_provider.dart';
 

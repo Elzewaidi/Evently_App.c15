@@ -1,14 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:provider/provider.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/providers/app_languge_provider.dart';
 import 'package:eventlyapp/providers/app_theme_provider.dart';
 import 'package:eventlyapp/providers/event_list_provider.dart';
 import 'package:eventlyapp/providers/location_provider.dart';
 import 'package:eventlyapp/providers/user_provider.dart';
 import 'package:eventlyapp/utils/themes.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Tabs/map/map_tab.dart';
 import 'UI/HomeScreen/add_event/add_event.dart';
@@ -17,7 +16,6 @@ import 'UI/HomeScreen/add_event/event_details.dart';
 import 'UI/HomeScreen/home_screen.dart';
 import 'UI/auth/login/login.dart';
 import 'UI/auth/register/register.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 

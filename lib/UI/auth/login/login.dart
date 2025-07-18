@@ -1,17 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:eventlyapp/Model/users.dart';
 import 'package:eventlyapp/Tabs/widget/custem_text_feild.dart';
 import 'package:eventlyapp/Tabs/widget/custom_elevated_button.dart';
 import 'package:eventlyapp/UI/HomeScreen/home_screen.dart';
 import 'package:eventlyapp/UI/auth/register/register.dart';
 import 'package:eventlyapp/firebase_utlis.dart';
+import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/providers/user_provider.dart';
-import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:eventlyapp/utils/app_colors.dart';
 import 'package:eventlyapp/utils/styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../utils/dailog_utils.dart';
 
