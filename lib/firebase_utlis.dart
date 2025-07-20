@@ -36,11 +36,12 @@ class FirebaseUtlis {
     var querySnapShot = await getUsersCollection().doc(id).get();
     return querySnapShot.data();
   }
-//json
+//firebase
+//firebase => json
+//developer => object
+//json => object
+//object => json
+//zewaidi
 //[],{}
-//firebase=>jsonS
-//developer=>object
-//json>object
-//object>json
-//sayed ali
+
 }

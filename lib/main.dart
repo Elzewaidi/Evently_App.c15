@@ -24,7 +24,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  //await FirebaseFirestore.instance.disableNetwork();
   WidgetsFlutterBinding.ensureInitialized();
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
@@ -69,9 +69,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: Homescreen.routeName,
       routes: {
-
         EventDetails.routeName: (context) => EventDetails(),
         Homescreen.routeName: (context) => Homescreen(),
         LoginScreen.routeName: (context) => LoginScreen(),

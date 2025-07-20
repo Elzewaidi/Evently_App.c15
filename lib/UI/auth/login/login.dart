@@ -179,6 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() async {
+    WidgetsFlutterBinding.ensureInitialized();
     if (formKey.currentState?.validate() == true) {
       //todo show loading
       DialogUtils.showLoading(context: context, message: 'Waiting');
