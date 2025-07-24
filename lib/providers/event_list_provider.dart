@@ -56,7 +56,6 @@ class EventListProvider extends ChangeNotifier {
   void getFilterEvents(String uId) async {
     // list --->//list<QuerySnapshot>
     print('in first get all events');
-
     QuerySnapshot<Event> querySnapshot = await FirebaseUtlis.getEventCollection(
       uId,
     ).get();
@@ -71,7 +70,6 @@ class EventListProvider extends ChangeNotifier {
     eventsList.sort((Event event, Event event2) {
       return event.dateTime.compareTo(event2.dateTime);
     });
-
     notifyListeners();
   }
 
@@ -110,26 +108,29 @@ class EventListProvider extends ChangeNotifier {
     }
   }
 
-  void updateIsFavorite(Event event, String uId) {
-    FirebaseUtlis.getEventCollection(uId)
-        .doc(event.id)
-        .update({'isFavorite': !event.isFavorite})
-        .then((onValue) {
-          print('updated successfully');
-          ToastMessage.toastMsg('updated successfully');
-        })
-        .timeout(
-          Duration(milliseconds: 500),
-          onTimeout: () {
-            print('updated successfully');
-            ToastMessage.toastMsg('updated successfully');
-            selectedIndex == 0 ? getAllEvents(uId) : getFilterEvents(uId);
-            getFavoriteEvent(uId);
-            //notifyListeners();
-          },
-        );
+  void updateFavoriteListFromEvents() {
+    isFavoriteList = eventsList.where((e) => e.isFavorite).toList();
+    notifyListeners();
   }
 
+  void updateIsFavorite(Event event, String uId) {
+    event.isFavorite = !event.isFavorite;
+    notifyListeners();
+    FirebaseUtlis.getEventCollection(uId)
+        .doc(event.id)
+        .update({'isFavorite': event.isFavorite})
+        .then((onValue) {
+          print('Updated successfully');
+          ToastMessage.toastMsg('Updated successfully');
+          updateFavoriteListFromEvents();
+        })
+        .catchError((error) {
+          print('Update failed');
+          ToastMessage.toastMsg('Update failed');
+          event.isFavorite = !event.isFavorite;
+          notifyListeners();
+        });
+  }
   void updateEvent(Event event, String uId) async {
     try {
       await FirebaseUtlis.getEventCollection(uId).doc(event.id).update({

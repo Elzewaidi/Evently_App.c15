@@ -21,7 +21,6 @@ class FavoriteTab extends StatefulWidget {
 List<Event> _filteredList = [];
 String _searchQuery = '';
 
-
 class _FavoriteTabState extends State<FavoriteTab> {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,6 @@ class _FavoriteTabState extends State<FavoriteTab> {
     } else if (_filteredList.isEmpty && _searchQuery.isEmpty) {
       _filteredList = List.from(favoriteListProvider.isFavoriteList);
     }
-
 
     return Scaffold(
       body: Padding(

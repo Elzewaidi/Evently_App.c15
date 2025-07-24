@@ -24,7 +24,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  //await FirebaseFirestore.instance.disableNetwork();
+
   WidgetsFlutterBinding.ensureInitialized();
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
@@ -46,30 +46,20 @@ void main() async {
         ChangeNotifierProvider(create: (context) => EventListProvider()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
         ChangeNotifierProvider(create: (context) => LocationProvider()),
-
       ],
       child: const MyApp(),
-
-
     ),
-
-
   );
 }
-
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLangugeProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
-      initialRoute: Homescreen.routeName,
+      initialRoute: LoginScreen.routeName,
       routes: {
         EventDetails.routeName: (context) => EventDetails(),
         Homescreen.routeName: (context) => Homescreen(),
@@ -79,8 +69,6 @@ class MyApp extends StatelessWidget {
         EditEvent.routeName: (context) => EditEvent(),
         MapTap.routeName: (context) => MapTap(),
       },
-
-
       theme: AppTheme.lightTheme,
       themeMode: themeProvider.apptheme,
       darkTheme: AppTheme.darkTheme,
